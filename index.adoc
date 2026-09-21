@@ -18,6 +18,8 @@ include::assets/legal/_license-cc-by-nd-4.0.adoc[]
 // Revision (bumped every edition)
 :revnumber: 1.0.0-SNAPSHOT
 :revdate: 2026-07-20
+// API version exposed by the VERSION constant: MAJOR.MINOR of revnumber
+:api-version: 1.0
 //
 // ============================================================================
 // Document-specific constants (local — differ per spec)
@@ -97,8 +99,8 @@ include::assets/layout/_colophon.adoc[]
 
 This document is the official technical specification of the **{doc-name}** standardised
 by the **{organization}** (CNA).
-It defines, in a language-agnostic way, the enumerated types that constitute *global constants* shared between
-several APIs of the CNA *Terminal API* family.
+It defines, in a language-agnostic way (using a notation inspired by the Kotlin language), the enumerated
+types that constitute *global constants* shared between several APIs of the CNA *Terminal API* family.
 
 The {doc-name} is a *foundation* module: it exposes no service interface, no SPI, no state machine. Its sole
 purpose is to host the cross-cutting enumerations that other Terminal APIs depend on.
@@ -198,11 +200,11 @@ Each class and enumeration defined in this document is described by a table of t
 [cols="^.^1h,.^5", grid=rows, frame=all]
 |===
 | Name       | The type's normalized name.
-| Kind      | The category of the type (class, enumeration, etc.).
-| Namespace | The namespace in which the type is defined.
-| Since     | The version of the API in which the type was introduced.
-| Purpose   | A normative description of the type's responsibility.
-| See also  | Cross-references to related operations or types, each a hyperlink to the corresponding table. Present only when applicable.
+| Kind       | The category of the type (class, enumeration, etc.).
+| Namespace  | The namespace in which the type is defined.
+| Since      | The version of the API in which the type was introduced.
+| Purpose    | A normative description of the type's responsibility.
+| See also   | Cross-references to related operations or types, each a hyperlink to the corresponding table. Present only when applicable.
 |===
 
 The *Purpose* row states, in one or two sentences, the responsibility of the type and the way an instance is
@@ -325,37 +327,27 @@ include::uml/class-diagram.puml[Terminal Definitions API class diagram]
 [[sec_specification]]
 == API Specification
 
-=== Classes
+=== Constants
 
 [[type_DefinitionsApiProperties]]
 ==== Definitions API Properties
 
 [cols="^.^1h,.^5", grid=rows, frame=all]
 |===
-| Name     | `DefinitionsApiProperties`
-| Kind     | Final class
+| Name       | `DefinitionsApiProperties`
+| Kind       | Constants
 | Namespace  | `definitions`
-| Since    | 1.0
-| Purpose  | Exposes the immutable properties of the {doc-name}.
+| Since      | 1.0
+| Purpose    | Exposes the immutable properties of the {doc-name}.
 |===
-
-===== Constants
 
 [cols="^.^1,^.^1,^.^1,.^4", options="header"]
 |===
 | Name      | Type     | Since | Description
 
-| `VERSION`
-| `string`
-| 1.0
-| String representation of the version of the API implemented by the conforming binding (e.g. `"1.0"`).
-  The value is a dotted decimal of the form `MAJOR.MINOR`.
+| `VERSION` | `String` | 1.0 | String representation of the version of the API implemented by the conforming binding.
+  The value is a dotted decimal of the form `MAJOR.MINOR`; it is `"{api-version}"` for this revision of the specification.
 |===
-
-[NOTE]
-====
-The `DefinitionsApiProperties` type cannot be instantiated; it exposes only static properties.
-====
 
 === Enumerations
 
@@ -364,10 +356,10 @@ The `DefinitionsApiProperties` type cannot be instantiated; it exposes only stat
 
 [cols="^.^1h,.^5", grid=rows, frame=all]
 |===
-| Name     | `CardType`
-| Kind     | Enumeration
+| Name       | `CardType`
+| Kind       | Enumeration
 | Namespace  | `definitions`
-| Since    | 1.0
+| Since      | 1.0
 | Purpose
 | Identifies a card type, as observed after detection. `CardType` is used as an *output* datum: it characterises
   what was actually detected, combining transport-protocol level and, when applicable, product identity.
@@ -404,10 +396,10 @@ product-specific values.
 
 [cols="^.^1h,.^5", grid=rows, frame=all]
 |===
-| Name     | `RfTechnology`
-| Kind     | Enumeration
+| Name       | `RfTechnology`
+| Kind       | Enumeration
 | Namespace  | `definitions`
-| Since    | 1.0
+| Since      | 1.0
 | Purpose
 | Identifies a radio-frequency communication technology that a contactless reader can activate during polling.
   `RfTechnology` is used as an *input* parameter: the integrator declares, at detection time, which RF
