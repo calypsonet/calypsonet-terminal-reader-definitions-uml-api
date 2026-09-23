@@ -2,7 +2,7 @@
 title
     <img:assets/logos/calypso.svg{scale=0.2}>
 
-    Terminal Definitions API 1.0.+ (2026-05-26)
+    Terminal Reader Definitions API 1.0.+ (2026-05-26)
 end title
 
 ' == THEME (class) ==
@@ -64,9 +64,9 @@ legend top
     *** <back:#E9F7EF><color:#27AE60><b>Data, constants, enumeration or error
 end legend
 
-package "definitions" as api {
+package "reader.definitions" as api {
 
-class "DefinitionsApiProperties" as ApiProperties <<constants>> <<green>> {
+class "ReaderDefinitionsApiProperties" as ApiProperties <<constants>> <<green>> {
     +const VERSION: String = "1.0"
 }
 enum "RfTechnology" as RfTechnology <<green>> {

@@ -1,6 +1,6 @@
-# Terminal Definitions API
+# Terminal Reader Definitions API
 
-> Source repository of the **Terminal Definitions API** specification.
+> Source repository of the **Terminal Reader Definitions API** specification.
 
 <!-- This README will be expanded later (overview, build, contributing, …). -->
 
