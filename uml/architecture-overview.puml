@@ -35,7 +35,7 @@ hide <<grey>> stereotype
 
 component "Terminal Application" as App
 component "Other Terminal APIs\n(e.g. Reader API)" as Other
-component "Terminal Definitions API\n(this specification)" as Def <<yellow>>
+component "Terminal Reader Definitions API\n(this specification)" as Def <<yellow>>
 
 App   --> Other : uses
 Other --> Def   : depends on (public)

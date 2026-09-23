@@ -5,13 +5,13 @@
 // ============================================================================
 //
 // Per-spec identity
-:doc-topic: Definitions
-:doc-name: Terminal Definitions API
+:doc-topic: Reader Definitions
+:doc-name: Terminal Reader Definitions API
 :doc-type: Specification
 :doc-classification: Public
-:doc-id: CNA-TD-API
-:doc-ref: YYMMDD-SP-CNATerminalAPI-Definitions
-:doc-repo: https://github.com/calypsonet/calypsonet-terminal-definitions-uml-api
+:doc-id: CNA-TRD-API
+:doc-ref: YYMMDD-SP-CNATerminalAPI-ReaderDefinitions
+:doc-repo: https://github.com/calypsonet/calypsonet-terminal-reader-definitions-uml-api
 include::assets/logos/_terminal-api.adoc[]
 include::assets/legal/_license-cc-by-nd-4.0.adoc[]
 //
@@ -299,8 +299,8 @@ include::uml/architecture-overview.puml[]
 |===
 | Namespace      | Role     | Summary
 
-| `definitions`  | Public API
-| Shared vocabulary of the CNA Terminal API: the RF-technology and card-type enumerations (`RfTechnology`,
+| `reader.definitions` | Public API
+| Shared vocabulary of the Terminal Reader API: the RF-technology and card-type enumerations (`RfTechnology`,
   `CardType`) and the API properties, reused across the terminal API specifications.
 |===
 
@@ -312,7 +312,7 @@ The following UML class diagram provides a visual representation of the types an
 .{doc-name} -- UML Class Diagram
 [plantuml, target="class-diagram", format="svg"]
 ----
-include::uml/class-diagram.puml[Terminal Definitions API class diagram]
+include::uml/class-diagram.puml[Terminal Reader Definitions API class diagram]
 ----
 
 === Evolution policy
@@ -329,14 +329,14 @@ include::uml/class-diagram.puml[Terminal Definitions API class diagram]
 
 === Constants
 
-[[type_DefinitionsApiProperties]]
-==== Definitions API Properties
+[[type_ReaderDefinitionsApiProperties]]
+==== Reader Definitions API Properties
 
 [cols="^.^1h,.^5", grid=rows, frame=all]
 |===
-| Name       | `DefinitionsApiProperties`
+| Name       | `ReaderDefinitionsApiProperties`
 | Kind       | Constants
-| Namespace  | `definitions`
+| Namespace  | `reader.definitions`
 | Since      | 1.0
 | Purpose    | Exposes the immutable properties of the {doc-name}.
 |===
@@ -358,7 +358,7 @@ include::uml/class-diagram.puml[Terminal Definitions API class diagram]
 |===
 | Name       | `CardType`
 | Kind       | Enumeration
-| Namespace  | `definitions`
+| Namespace  | `reader.definitions`
 | Since      | 1.0
 | Purpose
 | Identifies a card type, as observed after detection. `CardType` is used as an *output* datum: it characterises
@@ -398,7 +398,7 @@ product-specific values.
 |===
 | Name       | `RfTechnology`
 | Kind       | Enumeration
-| Namespace  | `definitions`
+| Namespace  | `reader.definitions`
 | Since      | 1.0
 | Purpose
 | Identifies a radio-frequency communication technology that a contactless reader can activate during polling.
